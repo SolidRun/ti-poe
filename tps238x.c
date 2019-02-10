@@ -56,7 +56,7 @@
 *                                 Included Headers                                                                                                *
 **************************************************************************************************************************************************/
 #include <tps238x.h>
-#include "I2C_Functions.h"
+#include "I2C_functions.h"
 #include "usci_uart.h"
 #include "sram_code.h"
 
