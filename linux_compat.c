@@ -18,3 +18,9 @@ void __delay_cycles(unsigned int cycles)
 
 	nanosleep(&wait_ts, NULL);
 }
+
+
+/* Empty stub */
+void uart_puts(char *str)
+{
+}
