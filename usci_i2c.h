@@ -35,7 +35,6 @@
 #define USCI_I2C_H_
 
 #include "stdint.h"
-#include "msp430fr5969.h"
 
 #define ISSUE_I2C_STOP                 0
 #define NO_I2C_STOP_FOR_RESTART        1

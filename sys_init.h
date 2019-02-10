@@ -34,7 +34,6 @@
 #ifndef SYS_INIT_H_
 #define SYS_INIT_H_
 
-#include "driverlib.h"
 #include "I2C_functions.h"
 #include "usci_uart.h"
 #include "sram_code.h"
