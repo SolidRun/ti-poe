@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <tps238x.h>
 
-uint8_t tps2388x_i2cAddList[NUM_OF_TPS2388x * NUM_OF_QUARD] = {0x20,0x21};
+uint8_t tps2388x_i2cAddList[NUM_OF_TPS2388x * NUM_OF_QUARD] = {0x34,0x35};
 
 static void print_resistance(uint8_t port_num)
 {
