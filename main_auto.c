@@ -3,6 +3,8 @@
 #include <stdio.h>
 #include <tps238x.h>
 
+#include "linux_i2c.h"
+
 uint8_t tps2388x_i2cAddList[NUM_OF_TPS2388x * NUM_OF_QUARD] = {0x34,0x35};
 
 static void print_resistance(uint8_t port_num)
@@ -32,6 +34,8 @@ int main(int argc, char *argv[])
 		detectionPortEvents, classificationPortEvents,
 		pcutPortEvents, disconnectPortEvents, inrushPortEvents,
 		ilimPortEvents;
+
+	linux_i2c_open_dev("/dev/i2c-0");
 
 	sysPortNum1 = tps_RegisterPort (tps2388x_i2cAddList[0], TPS238X_PORT_1);
 	sysPortNum2 = tps_RegisterPort (tps2388x_i2cAddList[0], TPS238X_PORT_2);
