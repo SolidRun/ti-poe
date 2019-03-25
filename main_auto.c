@@ -144,7 +144,7 @@ int main(int argc, char *argv[])
 				break;
 			}
 
-			if(sysPortNum > sysPortNum4)
+			if(0 && sysPortNum > sysPortNum4)
 			{
 				tps_GetPortConnectionCheckStatus(sysPortNum,&connectcheck);
 
