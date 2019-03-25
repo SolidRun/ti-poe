@@ -3,6 +3,7 @@
  */
 
 #include <time.h>
+#include <stdio.h>
 
 /* The tps_UpdateSRAMCode() routine needs 100000 cycles to make a 12ms delay.
  * This means that ~8333 cycles are needed for 1ms. Use a smaller value per ms
@@ -19,8 +20,7 @@ void __delay_cycles(unsigned int cycles)
 	nanosleep(&wait_ts, NULL);
 }
 
-
-/* Empty stub */
 void uart_puts(char *str)
 {
+	printf("%s", str);
 }
