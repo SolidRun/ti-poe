@@ -3059,7 +3059,8 @@ if(firmwareversion != SRAM_VERSION)
 
 
         //Set 2pair ports in 2 pair 30W mode
-        tps_SetDevice2PPowerAllocation(tps2388x_i2cAddList[0], _2P_30W_30W,_2P_30W_30W);
+        //tps_SetDevice2PPowerAllocation(tps2388x_i2cAddList[0], _2P_30W_30W,_2P_30W_30W);
+        tps_SetDevice4PPowerAllocation(tps2388x_i2cAddList[0],_4P_90W,_4P_90W);
 
         //Set  4pair ports in 4 pair 90W mode
         tps_SetDevice4PPowerAllocation(tps2388x_i2cAddList[1],_4P_90W,_4P_90W);
