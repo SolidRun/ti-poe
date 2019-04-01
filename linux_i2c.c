@@ -147,25 +147,21 @@ uint8_t tps_ReadI2CMultiple(uint8_t i2cAddress, uint8_t registerAddress,
 	if (ret < 0)
 		return 1;
 
-	ret = linux_i2c_smbus_xfer(I2C_SMBUS_WRITE, registerAddress,
-			I2C_SMBUS_BYTE, NULL);
+	if (numReadBytes > I2C_SMBUS_BLOCK_MAX)
+		numReadBytes = I2C_SMBUS_BLOCK_MAX;
+	data.block[0] = numReadBytes;
+
+	ret = linux_i2c_smbus_xfer(I2C_SMBUS_READ, registerAddress,
+			I2C_SMBUS_I2C_BLOCK_DATA, &data);
 	if (ret < 0) {
-		printf("%s: Register 0x%02x set failed: %s\n", __func__,
-			registerAddress, strerror(errno));
+		printf("%s: Register 0x%02x read failed: %s\n", __func__,
+				registerAddress, strerror(errno));
 		return 1;
 	}
 
-	for (uint8_t cnt = 0; cnt < numReadBytes; cnt++) {
-		ret = linux_i2c_smbus_xfer(I2C_SMBUS_READ, 0, I2C_SMBUS_BYTE,
-				&data);
-		if (ret < 0) {
-			printf("%s: Register 0x%02x read failed: %s\n",
-					__func__, registerAddress,
-					strerror(errno));
-			return 1;
-		}
-		readValue[cnt] = data.byte;
-	}
+	if (data.block[0] < numReadBytes)
+		numReadBytes = data.block[0];
+	memcpy(readValue, &data.block[1], numReadBytes);
 
 	return 0;
 }
