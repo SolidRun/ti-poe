@@ -1,0 +1,10 @@
+[Unit]
+Description=Initialize TPS2388 PoE Controller
+After=local-fs.target
+
+[Service]
+Type=simple
+ExecStart=/usr/sbin/tps2388-init
+
+[Install]
+WantedBy=network.target
