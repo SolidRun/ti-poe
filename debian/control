@@ -1,0 +1,14 @@
+Source: tps2388-init
+Section: admin
+Priority: optional
+Maintainer: Josua Mayer <josua@solid-run.com>
+Build-Depends: debhelper (>= 9), meson
+Standards-Version: 3.9.5
+Vcs-Git: https://github.com/SolidRun/ti-poe.git
+Vcs-Browser: https://github.com/SolidRun/ti-poe
+
+Package: tps2388-init
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: initialize tps2388 poe controller on clearfog gtr
+ Initializes the TPS2388 PoE Controller on the SolidRun Clearfog GTR L8 and S4.
