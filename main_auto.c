@@ -34,6 +34,19 @@ int main(int argc, char *argv[])
 		detectionPortEvents, classificationPortEvents,
 		pcutPortEvents, disconnectPortEvents, inrushPortEvents,
 		ilimPortEvents;
+	int opt;
+	int opt_monitor = 0;
+
+	while ((opt = getopt(argc, argv, "m")) != -1) {
+		switch (opt) {
+			case 'm':
+				opt_monitor = 1;
+				break;
+			default: /* '?' */
+				fprintf(stderr, "Usage: %s [-m]\n", argv[0]);
+				return 1;
+		}
+	}
 
 	linux_i2c_open_dev("/dev/i2c-0");
 
@@ -49,7 +62,7 @@ int main(int argc, char *argv[])
 
 	PSE_TPS238X_init(OPERATING_MODE_AUTO);
 
-	while(1)
+	while(opt_monitor)
 	{
 		sleep(10);
 

@@ -3,7 +3,8 @@ Description=Initialize TPS2388 PoE Controller
 After=local-fs.target
 
 [Service]
-Type=simple
+Type=oneshot
+RemainAfterExit=yes
 ExecStart=/usr/sbin/tps2388-init
 
 [Install]
