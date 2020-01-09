@@ -1,3 +1,10 @@
+tps2388-init (2) stable; urgency=medium
+
+  * ensure i2c device is available before starting
+  * convert to oneshot removing logging of status information
+
+ -- Josua Mayer <josua@solid-run.com>  Thu, 09 Jan 2020 15:29:54 +0100
+
 tps2388-init (1) stable; urgency=low
 
   * Initial Release.
