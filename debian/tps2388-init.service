@@ -1,6 +1,8 @@
 [Unit]
 Description=Initialize TPS2388 PoE Controller
 After=local-fs.target
+After=sys-devices-platform-soc-soc:internal\x2dregs-f1011000.i2c-i2c\x2d0-i2c\x2ddev-i2c\x2d0.device
+BindsTo=sys-devices-platform-soc-soc:internal\x2dregs-f1011000.i2c-i2c\x2d0-i2c\x2ddev-i2c\x2d0.device
 
 [Service]
 Type=oneshot
