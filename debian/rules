@@ -3,3 +3,8 @@
 # main packaging script based on dh7 syntax
 %:
 	dh $@ --with systemd
+
+override_dh_auto_install:
+	dh_auto_install
+	mkdir -p $(CURDIR)/debian/tps2388-init/etc/modules-load.d
+	echo "i2c-dev" > $(CURDIR)/debian/tps2388-init/etc/modules-load.d/tps2388-init.conf
