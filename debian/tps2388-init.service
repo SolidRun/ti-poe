@@ -8,6 +8,7 @@ BindsTo=sys-devices-platform-soc-soc:internal\x2dregs-f1011000.i2c-i2c\x2d0-i2c\
 Type=oneshot
 RemainAfterExit=yes
 ExecStart=/usr/sbin/tps2388-init
+ExecCondition=grep "^SolidRun Clearfog GTR.*$" /proc/device-tree/model
 
 [Install]
 WantedBy=network.target

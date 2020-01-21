@@ -1,3 +1,9 @@
+tps2388-init (3) stable; urgency=medium
+
+  * only start on Clearfog GTR devices
+
+ -- Josua Mayer <josua@solid-run.com>  Tue, 21 Jan 2020 18:15:46 +0100
+
 tps2388-init (2) stable; urgency=medium
 
   * ensure i2c device is available before starting
